@@ -1,5 +1,6 @@
 #!/system/bin/sh
 MODDIR=${0%/*}
+. "$MODDIR/momohide.sh" &
 TMPPROP="$(magisk --path)/riru.prop"
 MIRRORPROP="$(magisk --path)/.magisk/modules/riru-core/module.prop"
 sh -Cc "cat '$MODDIR/module.prop' > '$TMPPROP'"
@@ -9,3 +10,12 @@ if [ $? -eq 0 ]; then
   exit
 fi
 
+if mountpoint -q /cache; then
+    logcat=/cache/riru_master.log
+else
+    logcat=/data/cache/riru_master.log
+fi 
+rm -rf ${logcat}.bak
+mv -f $logcat ${logcat}.bak
+logcat Riru:I *:S >>$logcat &
+logcat MomoHider:I *:S >>$logcat &

@@ -1,8 +1,8 @@
 SKIPUNZIP=1
 
 RIRU_API="26"
-RIRU_VERSION_CODE="530"
-RIRU_VERSION_NAME="v26.1.7.r530.ab3086ec9f"
+RIRU_VERSION_CODE="527"
+RIRU_VERSION_NAME="v26.1.6.r527.cdcb9f34c6"
 
 if $BOOTMODE; then
   ui_print "- Installing from Magisk app"
@@ -70,6 +70,7 @@ mkdir "$MODPATH/lib"
 mkdir "$MODPATH/lib64"
 mkdir "$MODPATH/system"
 mkdir "$MODPATH/system/lib"
+mkdir -p "$MODPATH/riru/lib"
 [ "$IS64BIT" = true ] && mkdir "$MODPATH/system/lib64"
 
 if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
@@ -77,26 +78,41 @@ if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
   extract "$ZIPFILE" 'lib/x86/libriru.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/x86/libriruhide.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/x86/libriruloader.so' "$MODPATH/system/lib" true
+  extract "$ZIPFILE" 'riru_x86/lib/libmomohider.so' "$MODPATH/riru/lib" true
+  extract "$ZIPFILE" 'riru_x86/lib/libunshare.so' "$MODPATH/riru/lib" true
 
   if [ "$IS64BIT" = true ]; then
     ui_print "- Extracting x64 libraries"
     extract "$ZIPFILE" 'lib/x86_64/libriru.so' "$MODPATH/lib64" true
     extract "$ZIPFILE" 'lib/x86_64/libriruhide.so' "$MODPATH/lib64" true
     extract "$ZIPFILE" 'lib/x86_64/libriruloader.so' "$MODPATH/system/lib64" true
+    mkdir -p "$MODPATH/riru/lib64"
+    extract "$ZIPFILE" 'riru_x86/lib64/libmomohider.so' "$MODPATH/riru/lib64" true
+    extract "$ZIPFILE" 'riru_x86/lib64/libunshare.so' "$MODPATH/riru/lib64" true
   fi
 else
   ui_print "- Extracting arm libraries"
   extract "$ZIPFILE" 'lib/armeabi-v7a/libriru.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/armeabi-v7a/libriruhide.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/armeabi-v7a/libriruloader.so' "$MODPATH/system/lib" true
+  extract "$ZIPFILE" 'riru/lib/libmomohider.so' "$MODPATH/riru/lib" true
+  extract "$ZIPFILE" 'riru/lib/libunshare.so' "$MODPATH/riru/lib" true
 
   if [ "$IS64BIT" = true ]; then
     ui_print "- Extracting arm64 libraries"
     extract "$ZIPFILE" 'lib/arm64-v8a/libriru.so' "$MODPATH/lib64" true
     extract "$ZIPFILE" 'lib/arm64-v8a/libriruhide.so' "$MODPATH/lib64" true
     extract "$ZIPFILE" 'lib/arm64-v8a/libriruloader.so' "$MODPATH/system/lib64" true
+    mkdir -p "$MODPATH/riru/lib64"
+    extract "$ZIPFILE" 'riru/lib64/libmomohider.so' "$MODPATH/riru/lib64" true
+    extract "$ZIPFILE" 'riru/lib64/libunshare.so' "$MODPATH/riru/lib64" true
   fi
 fi
+    
+
+extract "$ZIPFILE" 'sepolicy.rule' "$MODPATH" true
+extract "$ZIPFILE" 'props.sh' "$MODPATH" true
+extract "$ZIPFILE" 'momohide.sh' "$MODPATH" true
 
 ui_print "- Setting permissions"
 set_perm_recursive "$MODPATH" 0 0 0755 0644
