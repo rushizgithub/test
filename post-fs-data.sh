@@ -25,3 +25,6 @@ MAGISK_TMP=$(magisk --path) || MAGISK_TMP="/sbin"
 echo -n "$MAGISK_TMP" > "$DATA_DIR/magisk_tmp"
 # enable momohider
 echo -n > "$DATA_DIR/isolated"
+echo -n > "$DATA_DIR/app_zygote_magic"
+echo -n > "$DATA_DIR/setns"
+echo -n > "$DATA_DIR/initrc"

@@ -70,6 +70,7 @@ delete_services() {
   del_service_name "$BOOT_COMPLETED"
 }
 
+
 check_reset_prop() {
   local NAME=$1
   local EXPECTED=$2
@@ -112,6 +113,7 @@ contains_reset_prop() {
   check_reset_prop "vendor.boot.vbmeta.device_state" "locked"
   check_reset_prop "vendor.boot.verifiedbootstate" "green"
   check_reset_prop "ro.secureboot.lockstate" "locked"
+  
 
   # Hide that we booted from recovery when magisk is in recovery mode
   contains_reset_prop "ro.bootmode" "recovery" "unknown"

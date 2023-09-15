@@ -1,9 +1,9 @@
 id=riru-core
-name=Riru Core + MomoHider + Unshare
-version=v26.1.6.r533
-versionCode=533
-author=Rikka, yujincheng08, vvb2060, canyie
-description=Inject into zygote and run codes from "Riru" modules in apps or the system server. Support modules which use Riru API v24+.
+name=Riru Core MOD
+version=v1.0.0
+versionCode=100
+author=RabahX
+description=This Modified Magisk Module For Riru Core .
+updateJson=https://raw.githubusercontent.com/RabahX/RiruCore-MOD/main/update.json
 riruApi=26
 riruMinApi=24
-updateJson=https://huskydg.github.io/external/riru-core/info.json
