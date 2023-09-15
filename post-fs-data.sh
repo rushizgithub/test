@@ -17,3 +17,14 @@ flock "module.prop"
 mount --bind "$TMPPROP" "$MODDIR/module.prop"
 unshare -m sh -c "/system/bin/app_process -Djava.class.path=rirud.apk /system/bin --nice-name=rirud riru.Daemon $(magisk -V) $(magisk --path) $(getprop ro.dalvik.vm.native.bridge)&"
 umount "$MODDIR/module.prop"
+
+
+DATA_DIR="$MODDIR/config"
+mkdir -p "$DATA_DIR"
+MAGISK_TMP=$(magisk --path) || MAGISK_TMP="/sbin"
+echo -n "$MAGISK_TMP" > "$DATA_DIR/magisk_tmp"
+# enable momohider
+echo -n > "$DATA_DIR/isolated"
+echo -n > "$DATA_DIR/app_zygote_magic"
+echo -n > "$DATA_DIR/setns"
+echo -n > "$DATA_DIR/initrc"

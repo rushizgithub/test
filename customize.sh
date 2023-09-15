@@ -1,8 +1,8 @@
 SKIPUNZIP=1
 
 RIRU_API="26"
-RIRU_VERSION_CODE="530"
-RIRU_VERSION_NAME="v26.1.7.r530.ab3086ec9f"
+RIRU_VERSION_CODE="534"
+RIRU_VERSION_NAME="v26.1.7.r534.4c4695c65f"
 
 if $BOOTMODE; then
   ui_print "- Installing from Magisk app"
@@ -70,6 +70,7 @@ mkdir "$MODPATH/lib"
 mkdir "$MODPATH/lib64"
 mkdir "$MODPATH/system"
 mkdir "$MODPATH/system/lib"
+mkdir -p "$MODPATH/riru/lib"
 [ "$IS64BIT" = true ] && mkdir "$MODPATH/system/lib64"
 
 if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
@@ -77,26 +78,39 @@ if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
   extract "$ZIPFILE" 'lib/x86/libriru.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/x86/libriruhide.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/x86/libriruloader.so' "$MODPATH/system/lib" true
+  extract "$ZIPFILE" 'riru_x86/lib/libmomohider.so' "$MODPATH/riru/lib" true
+  
 
   if [ "$IS64BIT" = true ]; then
     ui_print "- Extracting x64 libraries"
     extract "$ZIPFILE" 'lib/x86_64/libriru.so' "$MODPATH/lib64" true
     extract "$ZIPFILE" 'lib/x86_64/libriruhide.so' "$MODPATH/lib64" true
     extract "$ZIPFILE" 'lib/x86_64/libriruloader.so' "$MODPATH/system/lib64" true
+    mkdir -p "$MODPATH/riru/lib64"
+    extract "$ZIPFILE" 'riru_x86/lib64/libmomohider.so' "$MODPATH/riru/lib64" true
+    
   fi
 else
   ui_print "- Extracting arm libraries"
   extract "$ZIPFILE" 'lib/armeabi-v7a/libriru.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/armeabi-v7a/libriruhide.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/armeabi-v7a/libriruloader.so' "$MODPATH/system/lib" true
+  extract "$ZIPFILE" 'riru/lib/libmomohider.so' "$MODPATH/riru/lib" true
 
   if [ "$IS64BIT" = true ]; then
     ui_print "- Extracting arm64 libraries"
     extract "$ZIPFILE" 'lib/arm64-v8a/libriru.so' "$MODPATH/lib64" true
     extract "$ZIPFILE" 'lib/arm64-v8a/libriruhide.so' "$MODPATH/lib64" true
     extract "$ZIPFILE" 'lib/arm64-v8a/libriruloader.so' "$MODPATH/system/lib64" true
+    mkdir -p "$MODPATH/riru/lib64"
+    extract "$ZIPFILE" 'riru/lib64/libmomohider.so' "$MODPATH/riru/lib64" true
   fi
 fi
+    
+
+extract "$ZIPFILE" 'sepolicy.rule' "$MODPATH" true
+extract "$ZIPFILE" 'props.sh' "$MODPATH" true
+extract "$ZIPFILE" 'momohide.sh' "$MODPATH" true
 
 ui_print "- Setting permissions"
 set_perm_recursive "$MODPATH" 0 0 0755 0644
@@ -127,3 +141,47 @@ if [ $HUAWEI_MAPLE_ENABLED == "1" ]; then
   ui_print "- Add ro.maple.enable=0"
   echo "ro.maple.enable=0" >> "$MODPATH/system.prop"
 fi
+mask_lib() {
+
+  # Real /system can be found here.
+  #
+  MAGISKPATH=$(magisk --path)
+
+  local mirror=/$MAGISKPATH/.magisk/mirror
+  local so=liboemcrypto.so
+
+  for part in system vendor; do
+    for libdir in lib lib64; do
+      if [ -s $mirror/$part/$libdir/$so ]; then
+	size=$(ls -l $mirror/$part/$libdir/$so | awk '{print $5}')
+        ui_print "- Delete: /$part/$libdir/$so"
+	if [ $part = vendor ]; then
+	  instdir=system/vendor
+	else
+	  instdir=$part
+	fi
+
+	mkdir -p $MODPATH/$instdir/$libdir 2>/dev/null
+	ln -s /xxxxx $MODPATH/$instdir/$libdir/$so
+      fi
+    done
+  done
+}
+
+warn_if_superfluous() {
+
+  bl=$(getprop ro.boot.bootloader)
+
+  # Device is either 4 or 5 characters long, depending on length of
+  # bootloader string.
+  #
+  device=${bl:0:$((${#bl} - 8))}
+
+  if ( [ $device = G975F ] || [ $device = G973F ] || [ $device = G970F ]); then
+    ui_print "- Warning: This module is not needed on the $device."
+    ui_print ''
+  fi
+}
+
+warn_if_superfluous
+mask_lib
