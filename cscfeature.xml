@@ -14,15 +14,24 @@
     <CscFeature_Clock_SupportAlarmOptionMenuForHoliday>TRUE</CscFeature_Clock_SupportAlarmOptionMenuForHoliday>
     <CscFeature_Common_AllowExternalApkUsage>TRUE</CscFeature_Common_AllowExternalApkUsage>
     <CscFeature_Common_ConfigSvcProviderForUnknownNumber>whitepages,whitepages,off</CscFeature_Common_ConfigSvcProviderForUnknownNumber>
+    <CscFeature_Common_ConfigYuva>sabc_os_update|AIBokeh|powerplanning|reserve|zeroforward|mileage|dashboard|downloadable_spowerplanning|sprotect|downloadable_sprotect|downloadable_usbbackup|MemorySaver|MemorySaver_Refresh|MemorySaver_MOVE_CONTENT_TO_SDCARD|MemorySaver_Refresh_INSTALL_TO_SDCARD</CscFeature_Common_ConfigYuva>
     <CscFeature_Common_DisablePhoneNumberFormatting>TRUE</CscFeature_Common_DisablePhoneNumberFormatting>
+    <CscFeature_Common_EnablePrivacyDataGuard>TRUE</CscFeature_Common_EnablePrivacyDataGuard>
+    <CscFeature_Common_EnableUiDisplayMirroring>TRUE</CscFeature_Common_EnableUiDisplayMirroring>
+    <CscFeature_Common_EnableVIPMode>TRUE</CscFeature_Common_EnableVIPMode>
     <CscFeature_Common_EnhanceImageQuality>TRUE</CscFeature_Common_EnhanceImageQuality>
     <CscFeature_Common_SupportPrivateMode>TRUE</CscFeature_Common_SupportPrivateMode>
     <CscFeature_Common_SupportWcdmaInSlave>TRUE</CscFeature_Common_SupportWcdmaInSlave>
     <CscFeature_Contact_ConfigImsOpStyle>INS</CscFeature_Contact_ConfigImsOpStyle>
+    <CscFeature_Contact_EnableCallButtonInList>TRUE</CscFeature_Contact_EnableCallButtonInList>
+    <CscFeature_Contact_EnableCopyToDialer>TRUE</CscFeature_Contact_EnableCopyToDialer>
     <CscFeature_Contact_EnableDynCallerIdMatchingDigitWithAutoSim>TRUE</CscFeature_Contact_EnableDynCallerIdMatchingDigitWithAutoSim>
+    <CscFeature_Contact_EnableExtraCallServiceMenu>TRUE</CscFeature_Contact_EnableExtraCallServiceMenu>
     <CscFeature_Contact_ExtendSpeedDialTo100>TRUE</CscFeature_Contact_ExtendSpeedDialTo100>
+    <CscFeature_Contact_KeepUserfeatproperty>ViewBy</CscFeature_Contact_KeepUserfeatproperty>
     <CscFeature_Contact_SupportDuoVideoCall>TRUE</CscFeature_Contact_SupportDuoVideoCall>
     <CscFeature_Contact_SupportSIMContacts>TRUE</CscFeature_Contact_SupportSIMContacts>
+    <CscFeature_Dialer_PhonebookNdigitsMatching>TRUE</CscFeature_Dialer_PhonebookNdigitsMatching>
     <CscFeature_FMRadio_RecordingVolumeAs>11</CscFeature_FMRadio_RecordingVolumeAs>
     <CscFeature_Framework_SupportForceRestartGlobalAction>TRUE</CscFeature_Framework_SupportForceRestartGlobalAction>
     <CscFeature_GMS_SetClientIDBaseMs>android-samsung-gs-rev1</CscFeature_GMS_SetClientIDBaseMs>
@@ -30,10 +39,17 @@
     <CscFeature_GPS_SupportEnableAgps>TRUE</CscFeature_GPS_SupportEnableAgps>
     <CscFeature_Gallery_SupportAliveZoom>TRUE</CscFeature_Gallery_SupportAliveZoom>
     <CscFeature_Knox_SupportKnoxGuard>FALSE</CscFeature_Knox_SupportKnoxGuard>
+    <CscFeature_Launcher_PerformanceTunning>TRUE</CscFeature_Launcher_PerformanceTunning>
     <CscFeature_LockScreen_DisableUnlockVI>TRUE</CscFeature_LockScreen_DisableUnlockVI>
     <CscFeature_Message_EnableFontSize>TRUE</CscFeature_Message_EnableFontSize>
     <CscFeature_Message_SupportAntiPhishing>TRUE</CscFeature_Message_SupportAntiPhishing>
     <CscFeature_Message_SupportAutoDeleteSpam>TRUE</CscFeature_Message_SupportAutoDeleteSpam>
+    <CscFeature_Setting_ConfigFirstCallDateType>2</CscFeature_Setting_ConfigFirstCallDateType>
+    <CscFeature_Setting_CustNetworkSelMenu4>LTEONLY</CscFeature_Setting_CustNetworkSelMenu4>
+    <CscFeature_Setting_EnableMenuNetworkMode>TRUE</CscFeature_Setting_EnableMenuNetworkMode>
+    <CscFeature_Setting_EnableRoamingMenu>TRUE</CscFeature_Setting_EnableRoamingMenu>
+    <CscFeature_Setting_SupportWiFiCallingMenu>TRUE</CscFeature_Setting_SupportWiFiCallingMenu>
+    <CscFeature_Setting_SupportWifiCall>TRUE</CscFeature_Setting_SupportWifiCall>
     <CscFeature_Message_SupportUsefulcard>TRUE</CscFeature_Message_SupportUsefulcard>
     <CscFeature_RIL_ConfigNetworkTypeCapability>EUR-EUR-GSM-EUR</CscFeature_RIL_ConfigNetworkTypeCapability>
     <CscFeature_RIL_ConfigWbamr>2G</CscFeature_RIL_ConfigWbamr>
@@ -47,11 +63,17 @@
     <CscFeature_SetupWizard_DisablePrivacyPolicyAgreement>TRUE</CscFeature_SetupWizard_DisablePrivacyPolicyAgreement>
     <CscFeature_Sip_ConfigAlivePrediction>multilingual</CscFeature_Sip_ConfigAlivePrediction>
     <CscFeature_SmartManager_ConfigSubFeatures>applock</CscFeature_SmartManager_ConfigSubFeatures>
-    <CscFeature_SystemUI_ConfigDefQuickSettingItem>Wifi,SilentMode,SoundMode,WindowsLink,Bluetooth,NightMode,FocusMode,Intent,ColorInversion,Ebook,Routines,InstantSession,RotationLock,PowerShare,Flashlight,QRScanner,AirplaneMode,PowerSaving,MobileData,WifiCalling,Performance,BlueLightFilter,WifiHotspot,Hotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,ShareLive,DeviceVisibility,Dnd,Sync,UDS,BikeMode,PowerPlanning,FloatingMessage,RedPacket,DormantMode,QuickConnect,UltraPowerSaving,ScreenCapture,ScreenRecorder,VoLte,Dolby,BatteryMode,ExtraDim</CscFeature_SystemUI_ConfigDefQuickSettingItem>
+    <CscFeature_SystemUI_ConfigDefQuickSettingItem>AirplaneMode,AllShareCast,Aod,BatteryMode,BikeMode,BlueLightFilter,Bluetooth,ColorInversion,DailyBoard,DailyBoardWifi,DesktopMode,DeviceVisibility,Dnd,Dolby,DormantMode,Ebook,EdgeLighting,ExtraDim,Flashlight,FloatingMessage,FocusMode,GrxAutoBrightness,GrxMultiAction,GrxOutdoorMode,GrxOutdoorModeTC,GrxScreenOnTime,GrxSettingsTile,Hotspot,InstantSession,Intent,KidsHome,Location,MobileData,NearbyShare,Nfc,NightMode,Performance,PersonalMode,PowerPlanning,PowerSaving,PowerShare,QRScanner,QuickConnect,RedPacket,RotationLock,Routines,ScreenCapture,ScreenRecorder,SecureFolder,ShareLive,SilentMode,SoundMode,SpenRemote,Sync,UDS,UltraPowerSaving,VoLte,Wifi,WifiCalling,WifiHotspot,WindowsLink</CscFeature_SystemUI_ConfigDefQuickSettingItem>
     <CscFeature_SystemUI_ConfigOpBrandingForIndicatorIcon>INU_4G</CscFeature_SystemUI_ConfigOpBrandingForIndicatorIcon>
     <CscFeature_VT_ConfigBearer>-CSVT</CscFeature_VT_ConfigBearer>
-    <CscFeature_VT_ConfigCapability>three_widget</CscFeature_VT_ConfigCapability>
+    <CscFeature_SystemUI_SupportAssistanceAppChooser>TRUE</CscFeature_SystemUI_SupportAssistanceAppChooser>
+    <CscFeature_SystemUI_SupportDataUsageViewOnQuickPanel>TRUE</CscFeature_SystemUI_SupportDataUsageViewOnQuickPanel>
+    <CscFeature_SystemUI_SupportRecentAppProtection>TRUE</CscFeature_SystemUI_SupportRecentAppProtection>
+    <CscFeature_SystemUI_SupportWifiUsageViewOnQuickPanel>TRUE</CscFeature_SystemUI_SupportWifiUsageViewOnQuickPanel>
+    <CscFeature_VT_ConfigCapability>emergency,pip_peer,three_widget</CscFeature_VT_ConfigCapability>
     <CscFeature_VT_SupportAddCall>TRUE</CscFeature_VT_SupportAddCall>
+    <CscFeature_VT_SupportEmergencyCall>TRUE</CscFeature_VT_SupportEmergencyCall>
+    <CscFeature_VT_SupportGroupCall>TRUE</CscFeature_VT_SupportGroupCall>
     <CscFeature_VT_SupportMerge>TRUE</CscFeature_VT_SupportMerge>
     <CscFeature_Video_BlockNotiSoundDuringStreaming>TRUE</CscFeature_Video_BlockNotiSoundDuringStreaming>
     <CscFeature_Video_SupportPlayDuringCall>TRUE</CscFeature_Video_SupportPlayDuringCall>
@@ -59,8 +81,7 @@
     <CscFeature_VoiceCall_ConfigCallButton>UpgradeOverRcs</CscFeature_VoiceCall_ConfigCallButton>
     <CscFeature_VoiceCall_ConfigOpStyleForHdIcon>INS_HD</CscFeature_VoiceCall_ConfigOpStyleForHdIcon>
     <CscFeature_VoiceCall_ConfigOpStyleForVolte>INS_VOLTE,support_merge_option_waitingcall_dialog</CscFeature_VoiceCall_ConfigOpStyleForVolte>
-    <CscFeature_VoiceCall_ConfigRecording>RecordingAllowedByMenu,disclaimer_india</CscFeature_VoiceCall_ConfigRecording>
-    <CscFeature_VoiceCall_ConfigRecording>RecordingAllowedByMenu</CscFeature_VoiceCall_ConfigRecording>
+    <CscFeature_VoiceCall_ConfigRecording>RecordingAllowed,RecordingAllowedByMenu,disclaimer_india</CscFeature_VoiceCall_ConfigRecording>
     <CscFeature_VoiceCall_DisableGeoDescription>TRUE</CscFeature_VoiceCall_DisableGeoDescription>
     <CscFeature_VoiceCall_TunnigCallWaitingToneAs>70</CscFeature_VoiceCall_TunnigCallWaitingToneAs>
     <CscFeature_Weather_ConfigCpType>TWC</CscFeature_Weather_ConfigCpType>
